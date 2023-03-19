@@ -1,0 +1,17 @@
+%button {
+    width: 120px;
+    padding: 6px 12px;
+    border-radius: 5px;
+    margin: 10px;
+    color: white;
+}
+
+.show-btn {
+    @extend %button;
+    background-color: rgb(29, 192, 192);
+}
+
+.hide-btn {
+    @extend %button;
+    background-color: chocolate;
+}

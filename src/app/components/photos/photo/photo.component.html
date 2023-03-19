@@ -1,0 +1,8 @@
+<div class="mx-10 my-10 px-4 py-6 border rounded flex item-center flex-col mb-2">
+    <h3>{{photo.id}}.{{setFirstLetterUppercase(photo.title)}}</h3>
+    <app-button [title]="isPhoto ? 'Hide photo' : 'Show photo'" [btnClass]="isPhoto ? 'hide-btn' : 'show-btn'"
+        (click)="showPhoto(photo.id)"></app-button>
+    <div *ngIf="isPhoto">
+        <img class="photo-image" [src]="photo.url" [alt]="photo.title" />
+    </div>
+</div>

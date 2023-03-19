@@ -1,0 +1,12 @@
+%router-link-base{
+    font-size: 18px;
+    margin-left: 20px;
+}
+.router-link{
+    @extend %router-link-base;
+    color: white;
+}
+.active{
+    @extend %router-link-base;
+    color: rgb(255, 196, 0);
+}
