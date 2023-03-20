@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { IPhoto } from './../../models/Photo.model';
-// import { photos as data } from './data/photos';
 import { PhotosService } from './../../services/photos.service';
 import { Observable } from 'rxjs';
 

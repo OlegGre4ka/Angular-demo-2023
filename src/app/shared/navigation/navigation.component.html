@@ -1,4 +1,8 @@
-<nav class="h-[60px] bg-teal-600 flex items-center">
-    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="router-link">Photos</a>
-    <a routerLink="/products" routerLinkActive="active" class="router-link">Products</a>
+<nav class="h-[60px] bg-teal-600 flex justify-between items-center">
+    <p class="router-link font-bold m-0 pl-[40px]">Angular-demo-2023</p>
+    <div>
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+            class="router-link">Products</a>
+        <a routerLink="/photos" routerLinkActive="active" class="router-link">Photos</a>
+    </div>
 </nav>

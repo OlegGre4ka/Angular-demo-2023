@@ -1,12 +1,20 @@
-%router-link-base{
+%router-link-base {
     font-size: 18px;
     margin-left: 20px;
+    text-decoration: none;
+
+    &:last-child {
+        margin-right: 20px;
+    }
 }
-.router-link{
+
+.router-link {
     @extend %router-link-base;
     color: white;
 }
-.active{
+
+.active {
     @extend %router-link-base;
     color: rgb(255, 196, 0);
 }
+

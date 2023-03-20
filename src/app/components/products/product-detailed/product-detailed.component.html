@@ -1,0 +1,27 @@
+<div class="flex justify-center mt-4 mb-2">
+    <p class="text-xl">{{productDetailed.title}}</p>
+</div>
+<div class="flex flex-col border-2 rounded-lg m-auto w-[800px] mt-6">
+    <ngb-carousel *ngIf="images" #carousel [interval]="1500" [pauseOnHover]="pauseOnHover"
+        [pauseOnFocus]="pauseOnFocus">
+        <ng-template ngbSlide *ngFor="let image of images">
+            <div class="picsum-img-wrapper">
+                <img class="w-[800px] h-[400px]" [src]="image" alt="Random first slide" />
+            </div>
+            <!-- <div class="carousel-caption">
+                <h3>10 seconds between slides...</h3>
+                <p>This carousel uses customized default values.</p>
+            </div> -->
+        </ng-template>
+    </ngb-carousel>
+</div>
+<div class="flex justify-center mt-2 mb-2">
+    <button type="button" (click)="togglePaused()" class="btn btn-outline-dark btn-sm w-[100px]">
+        {{paused ? 'Cycle' : 'Pause' }}
+    </button>
+</div>
+<div class="flex flex-col border-2 rounded-md m-auto w-[800px] bg-stone-200 p-2">
+    <p>{{productDetailed.description}}</p>
+    <p><span class="font-bold">Brand</span>: {{productDetailed.brand}}</p>
+    <p><span class="font-bold">Price</span>: {{productDetailed.price | currency}}</p>
+</div>
