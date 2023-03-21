@@ -17,6 +17,7 @@ import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { FilterProductsPipe } from './pipes/filter-products.pipe';
 import { LoaderComponent } from './shared/loader/loader.component';
+import { FirstCapitalizeLetterPipe } from './pipes/first-capitalize-letter.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,8 @@ import { LoaderComponent } from './shared/loader/loader.component';
     NavigationComponent,
     ProductDetailedComponent,
     FilterProductsPipe,
-    LoaderComponent
+    LoaderComponent,
+    FirstCapitalizeLetterPipe
   ],
   imports: [
     BrowserModule,
