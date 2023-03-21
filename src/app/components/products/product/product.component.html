@@ -1,6 +1,6 @@
 <div class="w-[450px] my-8 px-4 py-6 border rounded flex item-center flex-col cursor-pointer"
     (click)="openDetailedProduct(product.id)">
-    <h3>{{product.id}}.{{product.title}}</h3>
+    <h3>{{product.title}}</h3>
     <div>
         <img class="photo-image" [src]="product.thumbnail" [alt]="product.title" />
         <ngb-rating [rate]="product.rating" [max]="5" [readonly] = "true"></ngb-rating>

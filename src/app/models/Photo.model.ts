@@ -6,3 +6,4 @@ export interface IPhoto {
     thumbnailUrl: string;
 }
 
+

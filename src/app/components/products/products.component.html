@@ -2,9 +2,10 @@
 
 <div class="flex flex-col items-center" >
     <input type="text" class="input-styles" placeholder="Search product..." [(ngModel)]="searchText"/>
-    <p *ngIf="isLoading" class="lex justify-center mt-4">
+    <span *ngIf="searchText.length && !(productsData | filterProducts: searchText).length" class="mt-4 text-red-500">No such product found</span>
+    <div *ngIf="isLoading" class="mt-4">
         <app-loader></app-loader>
-    </p>
+    </div>
 </div>
 <div class="flex flex-wrap justify-evenly items-stretch">
     <app-product [product]="product" *ngFor="let product of productsData | filterProducts: searchText"></app-product>

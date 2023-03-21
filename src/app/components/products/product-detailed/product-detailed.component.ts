@@ -1,41 +1,37 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductsService } from 'src/app/services/products.service';
-import {IProduct} from './../../../models/Product.model';
-import { NgbCarouselConfig, NgbSlideEvent, NgbSlideEventSource, NgbCarousel  } from '@ng-bootstrap/ng-bootstrap';
+import { IProduct } from './../../../models/Product.model';
+import { NgbCarouselConfig, NgbCarousel } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-product-detailed',
-  templateUrl: './product-detailed.component.html',
-  styleUrls: ['./product-detailed.component.scss'],
-  // imports: [NgbCarouselModule],
-  providers: [NgbCarouselConfig]
+	selector: 'app-product-detailed',
+	templateUrl: './product-detailed.component.html',
+	styleUrls: ['./product-detailed.component.scss'],
+	providers: [NgbCarouselConfig]
 })
 export class ProductDetailedComponent implements OnInit {
-  productDetailed: IProduct;
-  images: string[]=[];
-  constructor(private route: ActivatedRoute, private productsServise: ProductsService,
-    config: NgbCarouselConfig) { 
-      	// customize default values of carousels used by this component tree
-		// config.interval = 10000;
-		// config.wrap = false;
-		// config.keyboard = false;
-		// config.pauseOnHover = false;
-    }
+	productDetailed: IProduct;
+	images: string[] = [];
+	isLoading = true;
 
-  ngOnInit(): void {
-    this.productsServise.getDetailedProduct(this.route.snapshot.params['id']).subscribe(
-      product => {
-        this.productDetailed = product;
-        this.images=product.images;
-        console.log(this.route.snapshot.params['id'], this.productDetailed, this.images);
+	constructor(private route: ActivatedRoute, private productsServise: ProductsService, private router: Router,
+	) {
+	}
 
-      }
-    );
+	ngOnInit(): void {
+		this.productsServise.getDetailedProduct(this.route.snapshot.params['id']).subscribe(
+			product => {
+				this.productDetailed = product;
+				this.images = product.images;
+				console.log(this.route.snapshot.params['id'], this.productDetailed, this.images);
+				this.isLoading = false;
+			}
+		);
 
-  }
+	}
 
-  paused = false;
+	paused = false;
 	unpauseOnArrow = false;
 	pauseOnIndicator = false;
 	pauseOnHover = true;
@@ -44,7 +40,6 @@ export class ProductDetailedComponent implements OnInit {
 	@ViewChild(NgbCarousel) carousel: NgbCarousel;
 
 	togglePaused() {
-    console.log(this.paused, this.carousel, "click")
 		if (this.paused) {
 			this.carousel?.cycle();
 		} else {
@@ -53,6 +48,9 @@ export class ProductDetailedComponent implements OnInit {
 		this.paused = !this.paused;
 	}
 
+	backToAllList = () => {
+		this.router.navigate(['/'])
+	}
 	// onSlide(slideEvent: NgbSlideEvent) {
 	// 	// if (
 	// 	// 	this.unpauseOnArrow &&

@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
+import { NgIconsModule } from '@ng-icons/core';
+import { bootstrapArrowLeft } from '@ng-icons/bootstrap-icons';
 import { AppComponent } from './app.component';
 import { ProductComponent } from './components/products/product/product.component';
 import { PhotosComponent } from './components/photos/photos.component';
@@ -18,6 +20,8 @@ import { FormsModule } from '@angular/forms';
 import { FilterProductsPipe } from './pipes/filter-products.pipe';
 import { LoaderComponent } from './shared/loader/loader.component';
 import { FirstCapitalizeLetterPipe } from './pipes/first-capitalize-letter.pipe';
+import { PostsComponent } from './components/posts/posts.component';
+import { PostComponent } from './components/posts/post/post.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +34,9 @@ import { FirstCapitalizeLetterPipe } from './pipes/first-capitalize-letter.pipe'
     ProductDetailedComponent,
     FilterProductsPipe,
     LoaderComponent,
-    FirstCapitalizeLetterPipe
+    FirstCapitalizeLetterPipe,
+    PostsComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +45,8 @@ import { FirstCapitalizeLetterPipe } from './pipes/first-capitalize-letter.pipe'
     FormsModule,
     NgbModule,
     NgbCarouselModule,
-    NgbRatingModule
+    NgbRatingModule,
+    NgIconsModule.withIcons({ bootstrapArrowLeft }),
   ],
   providers: [],
   bootstrap: [AppComponent]

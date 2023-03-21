@@ -1,0 +1,5 @@
+<h2 class="title mx-10 my-10 font-bold">Posts</h2>
+<div *ngIf="isLoading" class="flex justify-center mt-4">
+    <app-loader></app-loader>
+</div>
+<app-post [post]="post" *ngFor="let post of postsData$ | async"></app-post>
