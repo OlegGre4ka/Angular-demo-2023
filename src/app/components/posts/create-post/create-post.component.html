@@ -1,9 +1,9 @@
-<form [formGroup]="form" (ngSubmit)="submit()">
+<form [formGroup]="form" (ngSubmit)="submit()" class="flex flex-col">
     <input type="text" class="input-styles" placeholder="Write post title" formControlName="title" />
     <!-- <p class="text-red-600 font-medium mb-2" *ngIf="title.errors?.minlength && title.touched">Please fill title field
         width min length. Now {{ title.value.length }}</p> -->
     <textarea class="textarea-styles" placeholder="Write post description" formControlName="description"></textarea>
-    <div class="flex justify-end p-0">
+    <div class="button-wrapper">
         <app-button [type]="'submit'" [btnClass]="'submit-btn'" [title]="'Create'"></app-button>
     </div>
 </form>

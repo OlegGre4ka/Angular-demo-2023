@@ -1,13 +1,37 @@
-.input-styles{
-    width: 450px;
+.input-styles {
+    max-width: 450px;
     border: 2px solid grey;
     border-radius: 4px;
     padding: 6px 12px;
+
+    @media (max-width:480px) {
+        width: 300px;
+    }
 }
 
-.textarea-styles{
+.textarea-styles {
     @extend .input-styles;
     min-height: 200px;
     max-height: 400px;
     margin-top: 15px;
+
+    &::-webkit-scrollbar{
+        -webkit-appearance: none;
+        width: 7px;
+    }
+
+    &::-webkit-scrollbar-thumb{
+        background-color: rgb(20 184 166);
+        border-radius: 2px;
+    }
+}
+
+.button-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0px;
+
+    @media (max-width:480px) {
+        width: 300px;
+    }
 }
