@@ -1,4 +1,25 @@
-.photo-image{
-    width:350px;
+.product-card {
+    width: 450px;
+    margin: 32px 0px;
+    padding: 0px 16px;
+    border: 1px solid grey;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+
+    @media (max-width:480px) {
+        width: 300px;
+    }
+}
+
+.photo-image {
+    width: 300px;
     height: 200px;
+    padding: 5px;
+
+    // @media (max-width:480px) {
+    //     width: 300px;
+    // }
 }
