@@ -1,8 +1,8 @@
 %button {
-    width: 120px;
+    min-width: 120px;
     padding: 6px 12px;
     border-radius: 5px;
-    margin: 10px;
+    // margin: 10px;
     color: white;
 }
 
@@ -14,4 +14,15 @@
 .hide-btn {
     @extend %button;
     background-color: chocolate;
+}
+
+.create-btn{
+    @extend %button;
+    background-color: rgb(33, 187, 33);
+}
+
+.submit-btn{
+    @extend %button;
+    background-color: teal;
+    margin-top: 15px;
 }

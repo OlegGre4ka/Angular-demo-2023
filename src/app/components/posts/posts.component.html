@@ -1,5 +1,10 @@
 <h2 class="title mx-10 my-10 font-bold">Posts</h2>
+<app-button [btnClass]="'create-btn'" [title]="'Create new post'" class="mx-8 my-10"
+    (click)="modalService.open()"></app-button>
 <div *ngIf="isLoading" class="flex justify-center mt-4">
     <app-loader></app-loader>
 </div>
-<app-post [post]="post" *ngFor="let post of postsData$ | async"></app-post>
+<app-modal *ngIf="modalService.isModal$ | async" [title]="'Create new post'">
+    <app-create-post (createNewPost)="addNewPost($event)"></app-create-post>
+</app-modal>
+<app-post [post]="post" *ngFor="let post of postsData"></app-post>

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { IPost } from '../models/IPost.model';
 import { IPostsData } from '../models/IPostsData.model';
 
@@ -10,6 +10,8 @@ import { IPostsData } from '../models/IPostsData.model';
   providedIn: 'root'
 })
 export class PostsService {
+  posts: IPost[] = [];
+
 
   constructor(private http: HttpClient) { }
 
@@ -17,10 +19,19 @@ export class PostsService {
     return this.http.get<IPostsData>('https://dummyjson.com/posts',
     {params: new HttpParams().append("limit", 10)})
       .pipe(map(data => {
+        console.log(data.posts, "post-data")
 
-        let posts: IPost[] = data.posts;
+        this.posts = data.posts;
 
-        return posts;
+        return this.posts;
       }))
+  }
+
+  create(post: IPost): Observable<IPost> {
+    let headers = new HttpHeaders();
+    return this.http.post<IPost>('https://dummyjson.com/posts/add', post,
+    {
+      headers: headers.set( 'Content-Type', 'application/json')
+    })
   }
 }
