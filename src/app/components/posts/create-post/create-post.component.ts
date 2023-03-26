@@ -18,7 +18,9 @@ export class CreatePostComponent {
       Validators.minLength(6)
     ]),
     description: new FormControl<string>('', [
-      Validators.required
+      Validators.required,
+      Validators.minLength(100),
+      Validators.maxLength(1000)
     ])
 
   })
@@ -28,8 +30,11 @@ export class CreatePostComponent {
     return this.form.controls.title as FormControl
   }
 
+  get description() {
+    return this.form.controls.description as FormControl
+  }
   submit() {
-     console.log(this.form, "form-value");
+     console.log(this.form, this.title, this.description, "form-value");
     this.postService.create({
       title: this.form.value.title as string,
       body: this.form.value.description as string,

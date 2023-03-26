@@ -1,9 +1,19 @@
 <form [formGroup]="form" (ngSubmit)="submit()" class="flex flex-col">
-    <input type="text" class="input-styles" placeholder="Write post title" formControlName="title" />
-    <!-- <p class="text-red-600 font-medium mb-2" *ngIf="title.errors?.minlength && title.touched">Please fill title field
-        width min length. Now {{ title.value.length }}</p> -->
-    <textarea class="textarea-styles" placeholder="Write post description" formControlName="description"></textarea>
+    <input type="text" class="input-styles" placeholder="Write post title. The min numbers of chars must be 6"
+        formControlName="title" />
+    <p class="text-red-600 font-medium mb-2" *ngIf="title.touched && title?.errors?.['required']">Title is required</p>
+    <p class="text-red-600 font-medium mb-2" *ngIf="title.errors?.['minlength'] && title.touched">Please fill title
+        field with min numbers of chars. Now {{ title.value.length }}</p>
+    <textarea class="textarea-styles"
+        placeholder="Write post description. The numbers of chars must be from 100 till 1000"
+        formControlName="description"></textarea>
+    <p class="text-red-600 font-medium mb-2" *ngIf="description.touched && description.errors?.['required']">Text is
+        required</p>
+    <p class="text-red-600 font-medium mb-2" *ngIf="description.touched && (description.errors?.['minlength'] ||
+        description.errors?.['maxlength'])">Please fill Text field
+        with min length 100 chars and max 1000. Now {{ description.value.length }}</p>
     <div class="button-wrapper">
-        <app-button [type]="'submit'" [btnClass]="'submit-btn'" [title]="'Create'"></app-button>
+        <app-button [type]="'submit'" [isDisabled]="form.invalid" [btnClass]="'submit-btn'"
+            [title]="'Create'"></app-button>
     </div>
 </form>

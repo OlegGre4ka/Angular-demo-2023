@@ -24,7 +24,6 @@ import { PostsComponent } from './components/posts/posts.component';
 import { PostComponent } from './components/posts/post/post.component';
 import { ModalComponent } from './shared/modal/modal.component';
 import { CreatePostComponent } from './components/posts/create-post/create-post.component';
-import { InputComponent } from './shared/input/input.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +42,6 @@ import { InputComponent } from './shared/input/input.component';
     PostComponent,
     ModalComponent,
     CreatePostComponent,
-    InputComponent,
   ],
   imports: [
     BrowserModule,

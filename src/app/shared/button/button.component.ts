@@ -9,5 +9,6 @@ export class ButtonComponent {
   @Input() type: string;
   @Input() title: string;
   @Input() btnClass: string;
+  @Input() isDisabled: boolean;
 
 }
