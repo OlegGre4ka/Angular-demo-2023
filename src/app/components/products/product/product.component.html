@@ -1,4 +1,3 @@
-<!-- <div class="w-[450px] my-8 px-4 py-6 border rounded flex item-center flex-col cursor-pointer" -->
 <div class="product-card"
     (click)="openDetailedProduct(product.id)">
     <h3>{{product.title}}</h3>
@@ -7,6 +6,6 @@
         <ngb-rating [rate]="product.rating" [max]="5" [readonly] = "true"></ngb-rating>
         <p class="mt-2">Category: {{product.category}}</p>
         <p class="mt-2">Brand: {{product.brand}}</p>
-        <p>Price: {{product.price | currency}}</p>
+        <p class="mb-0">Price: {{product.price | currency}}</p>
     </div>
 </div>

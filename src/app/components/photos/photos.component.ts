@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IPhoto } from './../../models/Photo.model';
 import { PhotosService } from './../../services/photos.service';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 
 
 @Component({
@@ -14,11 +14,16 @@ export class PhotosComponent implements OnInit {
   chosenId: number;
   // photosData: IPhoto[] = [];
   photosData$: Observable<IPhoto[]>
+  isLoading = true;
 
   constructor(private photosService: PhotosService) { }
 
   ngOnInit(): void {
-    this.photosData$ = this.photosService.getAllPhotos();
+    this.photosData$ = this.photosService.getAllPhotos().pipe(
+      tap(()=>this.isLoading = false)
+    );
+    // this.isLoading = false;
+
     // this.photosService.getAllPhotos().subscribe(
     //   photos => {
     //     this.photosData = photos.slice(0, 20)

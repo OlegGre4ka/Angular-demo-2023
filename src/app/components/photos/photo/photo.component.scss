@@ -1,5 +1,15 @@
-.photo-image {
-    width: 200px;
-    height: 200px;
-    border: 2px solid red;
-}
+    .title {
+        display: inline-block;
+
+        &::first-letter {
+            text-transform: capitalize !important;
+            // color:teal;
+        }
+    }
+
+    .photo-image {
+        width: 200px;
+        height: 200px;
+        border: 2px solid red;
+    }
+ 

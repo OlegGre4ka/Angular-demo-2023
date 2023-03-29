@@ -1,9 +1,14 @@
 <div class="mx-10 my-10 px-4 py-6 border rounded flex item-center flex-col mb-2">
-    <h3>{{photo.id}}.{{photo.title | firstCapitalizeLetter}}</h3>
+    <h3 class="mb-0">{{photo.id}}.<span class="title">{{photo.title}}</span></h3>
+    <span *ngIf="photo.id===1">(Title with CSS pseudo element first-letter)</span>
+
+
+    <h3 *ngIf="photo.id===1" class="mb-0">{{photo.id}}.{{photo.title | firstCapitalizeLetter}}</h3>
+    <span *ngIf="photo.id===1">(Title with Angular custom pipe for first letter, look at photo.component.html)</span>
 
     <app-button [title]="isPhoto ? 'Hide photo' : 'Show photo'" [btnClass]="isPhoto ? 'hide-btn' : 'show-btn'"
-        (click)="showPhoto(photo.id)"></app-button>
-    <div *ngIf="isPhoto">
+        (click)="showPhoto(photo.id)" class="mt-3"></app-button>
+    <div *ngIf="isPhoto" class="mt-3">
         <img class="photo-image" [src]="photo.url" [alt]="photo.title" />
     </div>
 </div>
