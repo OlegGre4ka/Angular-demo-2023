@@ -20,7 +20,13 @@ body{
 //     width: 45px;
 //     height: 45px;
 //   }
+// .flex-direction-column{
+//   display: flex;
+//   flex-direction: column;
+// }
+
 app-button{
   width:120px;
+  // width:120px;
   width:fit-content;
 }

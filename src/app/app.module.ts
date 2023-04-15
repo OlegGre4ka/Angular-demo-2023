@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -24,6 +24,13 @@ import { PostsComponent } from './components/posts/posts.component';
 import { PostComponent } from './components/posts/post/post.component';
 import { ModalComponent } from './shared/modal/modal.component';
 import { CreatePostComponent } from './components/posts/create-post/create-post.component';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { ExperimentalGuardComponent } from './components/experimental-guard/experimental-guard.component';
+import { AppEffects } from 'src/app.effects';
+import {reducers} from "./reducers";
 
 @NgModule({
   declarations: [
@@ -42,6 +49,7 @@ import { CreatePostComponent } from './components/posts/create-post/create-post.
     PostComponent,
     ModalComponent,
     CreatePostComponent,
+    ExperimentalGuardComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,6 +61,16 @@ import { CreatePostComponent } from './components/posts/create-post/create-post.
     NgbCarouselModule,
     NgbRatingModule,
     NgIconsModule.withIcons({ bootstrapArrowLeft, bootstrapXOctagon }),
+    StoreModule.forRoot(reducers, {
+      // metaReducers,
+      runtimeChecks: {
+        strictStateImmutability: true,
+        strictActionImmutability: true
+      }
+    }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+    // EffectsModule.forRoot([AppEffects]),
+    // StoreRouterConnectingModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

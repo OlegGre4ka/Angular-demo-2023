@@ -1,5 +1,5 @@
 %button {
-    // min-width: 120px;
+    min-width: 120px;
     padding: 6px 12px;
     border-radius: 5px;
     // margin: 10px;
@@ -9,6 +9,10 @@
 .show-btn {
     @extend %button;
     background-color: rgb(29, 192, 192);
+
+    &:hover{
+        background-color: rgb(146, 233, 233); 
+    }
 }
 
 .hide-btn {

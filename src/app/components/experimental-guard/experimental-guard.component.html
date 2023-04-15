@@ -1,0 +1,13 @@
+<h1 class="ml-3 mt-3">Experiment with NGRx</h1>
+<div class="flex flex-col ml-3 mt-3">
+    <app-button [title]="'Increase'" (click)="increase()" class="mb-3"></app-button>
+    <app-button [title]="'Decrease'" (click)="decrease()" class="mb-3"></app-button>
+    <app-button [title]="'Clear'" (click)="clear()"></app-button>
+
+    <p class="mt-3">Counter: {{count$ | async}}</p>
+    <p class="mt-3">Date: {{date$ | async | date: 'yyyy-mm-dd hh:mm:ss'}}</p>
+
+</div>
+
+
+
