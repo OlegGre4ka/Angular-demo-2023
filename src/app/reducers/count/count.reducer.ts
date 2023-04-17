@@ -1,6 +1,5 @@
 import { Action, createReducer,on } from "@ngrx/store";
 import {increment, decrement, reset} from "./count.actions";
-// export const countNode = 'count';
 export interface CountState {
     count: number;
     date: number;
