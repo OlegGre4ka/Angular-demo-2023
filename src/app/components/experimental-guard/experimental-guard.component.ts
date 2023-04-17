@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import { Observable } from 'rxjs';
-import { selectCount, selectDate } from 'src/app/reducers/count/count.selectors';
-
+import { Observable, map } from 'rxjs';
+import { getCount, getDate } from 'src/app/reducers/count/count.selectors';
+import { increment, decrement, reset } from './../../reducers/count/count.actions';
 @Component({
   selector: 'app-experimental-guard',
   templateUrl: './experimental-guard.component.html',
@@ -10,21 +10,26 @@ import { selectCount, selectDate } from 'src/app/reducers/count/count.selectors'
 })
 export class ExperimentalGuardComponent {
 
-  count$: Observable<number> = this.store$.pipe(select(selectCount));
-  date$: Observable<number> = this.store$.pipe(select(selectDate));
+  // count$: Observable<number> = this.store$.pipe(select(getCount));
+  // date$: Observable<number> = this.store$.pipe(select(getDate));
+  count$: Observable<number> = this.store.select(getCount);
+  date$: Observable<number> = this.store.select(getDate);
+  disabled$: Observable<boolean> = this.count$.pipe(map(count => count <= 0));
 
-
-  constructor(private store$: Store) {
+  constructor(private store: Store) {
 
   }
-  increase() {
-    // this.count++;
+  onIncrement() {
+
+    this.store.dispatch(increment());
   }
-  decrease() {
-    // this.count--;
+
+  onDecrement() {
+    this.store.dispatch(decrement());
   }
-  clear() {
-    // this.count = 0;
+
+  onReset() {
+    this.store.dispatch(reset());
   }
 
 }
