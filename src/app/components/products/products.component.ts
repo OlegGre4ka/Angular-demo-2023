@@ -19,7 +19,7 @@ export class ProductsComponent implements OnInit {
       products => {
         this.productsData = products;
         this.isLoading = false;
-        console.log(products, "products")
+        // console.log(products, "products")
       }
     )
   }

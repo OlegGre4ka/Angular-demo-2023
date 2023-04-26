@@ -26,12 +26,3 @@
     }
 }
 
-.button-wrapper {
-    display: flex;
-    justify-content: flex-end;
-    padding: 0px;
-
-    @media (max-width:480px) {
-        width: 300px;
-    }
-}

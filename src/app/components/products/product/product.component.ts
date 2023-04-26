@@ -7,14 +7,14 @@ import { IProduct } from 'src/app/models/Product.model';
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss']
 })
-export class ProductComponent implements OnInit{
+export class ProductComponent{
   @Input() product: IProduct;
 
   constructor(private router: Router) { 
   }
-  ngOnInit(): void {
-    console.log(this.product, "product")
-  }
+  // ngOnInit(): void {
+  //   console.log(this.product, "product")
+  // }
 
   openDetailedProduct(productId: number) {
     this.router.navigate(['/products',productId])

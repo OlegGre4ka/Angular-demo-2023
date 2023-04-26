@@ -1,0 +1,15 @@
+<app-modal [title]="'Guard confirm modal'" *ngIf="modalGuardService.isGuardModal$|async"
+  [сonfirmForm]="confirmForm" (changeIsCodeWrong)="initIsCodeWrong($event)">
+  <form [formGroup]="guardConfirmForm" (ngSubmit)="submit()" class="flex flex-col" #confirmForm>
+    <input type="text" class="input-styles mb-2" placeholder="Write code-123456" formControlName="confirmCode" />
+    <p class="text-red-600 font-small mb-2" *ngIf="isWrongCode">Code is wrong!</p>
+    <p class="text-red-600 font-small mb-2" *ngIf="confirmCode.touched && confirmCode?.errors?.['required']">Code is
+      required</p>
+    <p class="text-red-600 font-small mb-2" *ngIf="confirmCode.errors?.['minlength'] && confirmCode.touched">Please
+      fill code field with min numbers of chars-6. Now {{ confirmCode.value.length }}</p>
+    <div class="button-wrapper mt-2">
+      <app-button [type]="'submit'" [isDisabled]="guardConfirmForm.invalid" [btnClass]="'submit-btn'"
+        [title]="'Confirm'"></app-button>
+    </div>
+  </form>
+</app-modal>

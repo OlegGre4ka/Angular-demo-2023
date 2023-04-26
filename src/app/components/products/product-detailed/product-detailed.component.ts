@@ -24,7 +24,6 @@ export class ProductDetailedComponent implements OnInit {
 			product => {
 				this.productDetailed = product;
 				this.images = product.images;
-				console.log(this.route.snapshot.params['id'], this.productDetailed, this.images);
 				this.isLoading = false;
 			}
 		);

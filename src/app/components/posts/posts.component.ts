@@ -24,12 +24,12 @@ export class PostsComponent {
       posts => {
         this.postsData = posts;
         this.isLoading = false;
-        console.log(posts, "posts")
+        // console.log(posts, "posts")
       }
     )
   }
   addNewPost(newPost: IPost){
     this.postsData = [newPost, ...this.postsData];
-    console.log(this.postsData, "newPosts Array")
+    // console.log(this.postsData, "newPosts Array")
   }
 }

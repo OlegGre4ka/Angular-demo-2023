@@ -1,5 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ModalService } from 'src/app/services/modal.service';
+import { GuardModalService } from 'src/app/services/guard-modal.service';
+
 
 @Component({
   selector: 'app-modal',
@@ -7,6 +9,16 @@ import { ModalService } from 'src/app/services/modal.service';
   styleUrls: ['./modal.component.scss']
 })
 export class ModalComponent {
-  constructor(public modalService: ModalService){}
   @Input() title: string;
+  @Input() сonfirmForm: any;
+  @Output() changeIsCodeWrong = new EventEmitter<boolean>();
+  
+  constructor(public modalService: ModalService, public guardModalService: GuardModalService){}
+
+  closeModal() {
+		this.modalService.close();
+    this.guardModalService.closeGuardModal();
+    this.changeIsCodeWrong.emit(false);
+    this.сonfirmForm.reset();
+	}
 }

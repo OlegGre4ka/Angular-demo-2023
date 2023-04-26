@@ -30,3 +30,24 @@ app-button{
   // width:120px;
   width:fit-content;
 }
+
+.input-styles {
+  max-width: 450px;
+  border: 2px solid grey;
+  border-radius: 4px;
+  padding: 6px 12px;
+
+  @media (max-width:480px) {
+      width: 300px;
+  }
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0px;
+
+  @media (max-width:480px) {
+      width: 300px;
+  }
+}

@@ -31,6 +31,7 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { ExperimentalGuardComponent } from './components/experimental-guard/experimental-guard.component';
 import { AppEffects } from 'src/app.effects';
 import {reducers} from "./reducers";
+import { GuardModalComponent } from './shared/guard-modal/guard-modal.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import {reducers} from "./reducers";
     ModalComponent,
     CreatePostComponent,
     ExperimentalGuardComponent,
+    GuardModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,7 +74,7 @@ import {reducers} from "./reducers";
     // EffectsModule.forRoot([AppEffects]),
     // StoreRouterConnectingModule.forRoot(),
   ],
-  providers: [],
+  providers: [ModalComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,9 +1,7 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { CountState } from './count.reducer';
 
-// export const selectCountFeature = createFeatureSelector<CountState>(countNode);
 export const selectCountFeature = createFeatureSelector<CountState>('count');
-console.log(selectCountFeature, "selectFeature")
 export const getCount = createSelector(
     selectCountFeature,
     (state: CountState): number => state.count
